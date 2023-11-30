@@ -1,11 +1,14 @@
-
+import {Routes, Route, Navigate} from "react-router-dom";
+import PostSermon from "./Components/PostSermon/PostSermon"
 function App() {
  
 
   return (
     <>
-      <div>IBMH-admin</div>
-        
+      <Routes>
+      <Route path="/" element={<PostSermon/>}/>
+      <Route path='*' element={<Navigate replace to="/" />} />
+      </Routes>
     </>
   )
 }

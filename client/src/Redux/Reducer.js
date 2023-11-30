@@ -43,4 +43,6 @@ function rootReducer(state = initialState, {type, payload}){
                 ...state
             }
     }
-}
+};
+
+export default rootReducer;
