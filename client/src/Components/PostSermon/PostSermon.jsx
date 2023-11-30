@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import { postSermon } from '../../Redux/Actions'
+import { getAllSermon, postSermon } from '../../Redux/Actions'
+import {books} from './arrayBooks'
 
 function PostSermon() {
 
@@ -27,16 +28,18 @@ function PostSermon() {
          })
     }
 
+
     const handleSubmit =(event)=>{
         event.preventDefault();
         dispatch(postSermon(value))
         alert("Sermon subido con éxito")
+        dispatch(getAllSermon())
         setValue("")
     }
 
   return (
     <div>
-        <h1>PostSermon</h1>
+        <h1>Subir sermón</h1>
 
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
@@ -45,15 +48,6 @@ function PostSermon() {
                 type="text" 
                 placeholder="Titulo de la predica"
                 name="title"
-                onChange={handleChange}/>
-            </div>
-
-            <div>
-                <label> Descripción (Opcional) </label>
-                <textarea 
-                type="text" 
-                placeholder="Descripción (No versiculo)"
-                name="description"
                 onChange={handleChange}/>
             </div>
 
@@ -93,14 +87,17 @@ function PostSermon() {
                 onChange={handleChange}/>
             </div>
 
-           //hacer select
+           
             <div>
                 <label> Libro </label>
-                <input 
-                type="text" 
-                placeholder="Libro"
-                name="book"
-                onChange={handleChange}/>
+                <select onChange={(event)=> handleChange(event)} name="book">
+                    {
+                        books?.map(b =>{
+                            return <option value={b?.name}>{b?.name}</option>
+                        })
+                    }
+                </select>
+                <p>{value?.book}</p>
             </div>
 
             <div>
@@ -121,7 +118,16 @@ function PostSermon() {
                 onChange={handleChange}/>
             </div>
 
-        //manejar distinto, es un array
+            <div>
+                <label> Descripción (Opcional) </label>
+                <textarea 
+                type="text" 
+                placeholder="Descripción (No versiculo)"
+                name="description"
+                onChange={handleChange}/>
+            </div>
+
+        {/* //manejar distinto, es un array
             <div>
                 <label> Palabras claves (Opcional) </label>
                 <input 
@@ -129,7 +135,7 @@ function PostSermon() {
                 placeholder="Ej: Atributos de Dios"
                 name="keywords"
                 onChange={handleChange}/>
-            </div>
+            </div> */}
 
             <div>
                 <label> Audio de Spotify (Opcional) </label>
@@ -139,6 +145,8 @@ function PostSermon() {
                 name="spotifyLink"
                 onChange={handleChange}/>
             </div>
+
+            <div><button type="submit" >Subir</button></div>
         </form>
     </div>
   )
