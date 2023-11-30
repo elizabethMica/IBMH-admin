@@ -111,7 +111,7 @@ function PostSermon() {
 
             <div>
                 <label> Versiculo </label>
-                <input 
+                <textarea
                 type="text" 
                 placeholder="Texto del versiculo (sin números)"
                 name="verseText"
