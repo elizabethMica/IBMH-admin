@@ -1,0 +1,8 @@
+export const GET_SERMONS = "GET_SERMONS";
+export const GET_CONTACT = "GET_CONTACT";
+export const GET_CONTACT_DETAIL = "GET_CONTACT_DETAIL";
+export const GET_SERMON_DETAIL = "GET_SERMON_DETAIL";
+export const POST_SERMON = "POST_SERMON";
+export const DELETE_SERMON = "DELETE_SERMON";
+export const UPDATE_SERMON = "UPDATE_SERMON";
+export const DELETE_CONTACT = "DELETE_CONTACT";
