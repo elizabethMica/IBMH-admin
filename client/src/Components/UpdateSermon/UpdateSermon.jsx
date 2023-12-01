@@ -48,13 +48,14 @@ function UpdateSermon() {
   }
 
   return (
-    <div className='flex  py-24 gap-2'>
-        <div className='w-1/2 flex flex-col justify-center items-center'>
+    <div className='flex flex-col md:flex-row py-24 md:gap-2'>
+        <div className='md:w-1/2 flex flex-col justify-center md:justify-start items-center'>
         <h1 className='text-lg font-semibold underline decoration-gray-500'>Actualizar sermón</h1>
 
-        <form onSubmit={(event)=>handleSubmit(event)}>
-            <div>
-                <label className='text-sm md:text-lg'> Titulo </label>
+        <form onSubmit={(event)=>handleSubmit(event)} className='w-[300px] md:w-full md:px-6 flex flex-col'>
+
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Titulo</label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.title}
@@ -64,8 +65,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Imagen de portada</label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Imagen de portada (Link)</label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.cover}
@@ -75,11 +76,11 @@ function UpdateSermon() {
                 onChange={handleChange}/>
 
             </div>
-            <div className='my-2'>
-                <img src={value.cover} className='rounded-lg w-[300px] h-[200px] md:w-[400px] md:h-[230px]'/>
-            </div>
-            <div>
-                <label className='text-sm md:text-lg'> Fecha </label>
+
+            
+
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Fecha </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.date}
@@ -89,8 +90,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Video </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Video </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.videoYT}
@@ -100,8 +101,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Cita </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Cita </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.verse}
@@ -112,23 +113,23 @@ function UpdateSermon() {
             </div>
 
            
-            <div>
-                <label className='text-sm md:text-lg'> Libro </label>
-                <select onChange={(event)=> handleChange(event)} name="book">
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Libro </label>
+                <select onChange={(event)=> handleChange(event)} name="book" className='bg-gray-300 rounded-md'>
                     {
                         books?.map(b =>{
                             return <option value={b?.name}>{b?.name}</option>
                         })
                     }
                 </select>
-                <div className='flex justify-start items-center'>
+                <div className='flex justify-start items-center my-2'>
                 <GoDotFill size={10}/>
-                <p className='text-gray-500'>{value?.book}</p>
+                <p className=''>{value?.book}</p>
                 </div>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Predicador </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Predicador </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.preacher}
@@ -138,8 +139,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Versiculo </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Versiculo </label>
                 <textarea
                 className='w-full min-h-[150px] border-2  rounded-md text-start'
                 value={value.verseText}
@@ -149,8 +150,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div>
-                <label className='text-sm md:text-lg'> Descripción (Opcional) </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
+                <label className='text-sm md:text-lg text-gray-500'> Descripción (Opcional) </label>
                 <textarea 
                 className='w-full min-h-[150px] border-2  rounded-md text-start'
                 value={value.description}
@@ -170,8 +171,8 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div> */}
 
-            <div>
-                <label className='text-sm md:text-lg'> Audio de Spotify (Opcional) </label>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col'>
+                <label className='text-sm md:text-lg text-gray-500'> Audio de Spotify (Opcional) </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 value={value.spotifyLink}
@@ -181,38 +182,47 @@ function UpdateSermon() {
                 onChange={handleChange}/>
             </div>
 
-            <div><button type="submit" className='mt-4 bg-green-500 px-2 rounded-md' >Actualizar</button></div>
+            <div className='flex justify-center items-center '>
+                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md' >Actualizar</button>
+            </div>
         </form>
         </div>
 
 
-        <div className='w-1/2 flex flex-col justify-start items-center'>
-            <h3>Preview</h3>
+        <div className='md:w-1/2 flex flex-col justify-start items-center pt-8 md:pt-0'>
+
+        <div className=' flex flex-col justify-start items-center mb-8'>
+            <h3 className='text-lg font-semibold underline decoration-gray-500 mb-4'>Portada</h3>
+            <img src={value.cover} className='rounded-lg w-[300px] h-[200px] md:w-[480px] md:h-[300px]'/>
+        </div>
+
+            <h3 className='text-lg font-semibold underline decoration-gray-500'>Preview</h3>
             <h3 className="text-lg font-bold text-center md:text-3xl">{value.title}</h3>
             <h5 className="text-sm md:text-lg text-center mb-2 w-full text-gray-500">{value.verse} | {value.preacher}</h5>
 
-            <section className="mx-8">
-        <div >
-            {value.videoYT? (
-                    <iframe
-                    key={detail?.id}
-                    src={embed + videoLink }
-                    className="w-80 h-48 m-auto md:w-9/12 md:h-[260px]"
-                  />    
-                ) : <p>El video no es compatible con el celular. Por favor visita el canal de Youtube <Link target="_blank" to="https://www.youtube.com/@ibmhurlingham879" style={{color:"blue"}}>IBM Hurlingham</Link></p> 
+        <section className="mx-8">
+            <div >
+                {value.videoYT? (
+                        <iframe
+                        key={detail?.id}
+                        src={embed + videoLink }
+                        className="w-80 h-48 m-auto md:w-9/12 md:h-[260px]"
+                    />    
+                    ) : <p>El video no es compatible con el celular. Por favor visita el canal de Youtube <Link target="_blank" to="https://www.youtube.com/@ibmhurlingham879" style={{color:"blue"}}>IBM Hurlingham</Link></p> 
+                }
+            </div>
+            <div className="mb-10 mt-4 border-t-2 md:mx-28">
+            <p className="mt-2 font-semibold text-sm md:text-lg ">Versículo</p>
+            <p className="mt-2 text-justify md:text-start md:text-xl">{value.verseText}</p>
+            </div>
+            {
+            value.description ? ( <div className="mb-10 mt-4 border-t-2 md:mx-28">
+            <p className="mt-2 font-semibold text-sm md:text-lg ">Descripción</p>
+            <p className="mt-2 text-justify md:text-start md:text-xl">{value.description}</p>
+            </div>) : null
             }
-        </div>
-        <div className="mb-10 mt-4 border-t-2 md:mx-28">
-        <p className="mt-2 font-semibold text-sm md:text-lg ">Versículo</p>
-        <p className="mt-2 text-justify md:text-start md:text-xl">{value.verseText}</p>
-        </div>
-        {
-          detail?.description ? ( <div className="mb-10 mt-4 border-t-2 md:mx-28">
-          <p className="mt-2 font-semibold text-sm md:text-lg ">Descripción</p>
-          <p className="mt-2 text-justify md:text-start md:text-xl">{value.description}</p>
-          </div>) : null
-        }
         </section>
+        
         </div>
     </div>
   )
