@@ -14,7 +14,7 @@ function GetSermon() {
      },[dispatch])
 
   return (
-    <div className='pt-24 flex flex-col justify-center items-center'>
+    <div className='py-24 flex flex-col justify-center items-center'>
         <h1 className='text-2xl md:text-3xl font-semibold border-b-2 '>Sermones</h1>
         <div className='mx-8 pt-4 gap-4 flex flex-col md:flex-row md:flex-wrap md:justify-center md:items-start'>
         {sermones?.map(s => {
