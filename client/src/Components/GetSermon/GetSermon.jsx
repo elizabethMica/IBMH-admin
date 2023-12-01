@@ -7,7 +7,9 @@ function GetSermon() {
 
     const dispatch =useDispatch()
     const sermones = useSelector(state => state.sermons)
+
      useEffect(()=>{
+      window.scrollTo(0,0)
       dispatch(getAllSermon())
      },[dispatch])
 

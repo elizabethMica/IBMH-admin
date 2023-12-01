@@ -1,10 +1,12 @@
 import { NavLink, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { RiEdit2Fill, RiDeleteBin2Fill } from "react-icons/ri";
 
 
 
 const SermonCard = (Props) => {
 
-  
+  const navigate = useNavigate()
 
   return (
     <div className=" my-6 md:my-0 w-72 md:w-64" >
