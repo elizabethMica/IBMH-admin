@@ -1,13 +1,15 @@
 import React from 'react'
-import {getSermonDetail} from '../../Redux/Actions'
+import {deleteSermon, getSermonDetail} from '../../Redux/Actions'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react";
-import { NavLink, Link, useParams } from 'react-router-dom';
+import { NavLink, Link, useParams, useNavigate } from 'react-router-dom';
+import { RiEdit2Fill, RiDeleteBin2Fill } from "react-icons/ri";
 
 function SermonDetail() {
 
     const {id} = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -18,9 +20,24 @@ function SermonDetail() {
   
       const embed = "https://www.youtube.com/embed/"
       const videoLink = detail?.videoYT?.split("/")[3]
+
+      const handleDelete =(event)=>{
+        event.preventDefault()
+        let confirmación = confirm("Desea borrar este sermón?")
+        if(confirmación === true){
+            dispatch(deleteSermon(id))
+            navigate('/sermones')
+        }
+      };
+
+
   return (
     <div className="pt-24" >
-      <div className=" ">
+        <div className='flex justify-center items-center'>
+         <NavLink to={`/update-sermon/${id}`}><button className='border-2 rounded-md p-1'><RiEdit2Fill size={20}/></button></NavLink>
+         <button className='border-2 rounded-md p-1' onClick={handleDelete}><RiDeleteBin2Fill size={20}/></button>
+        </div>
+      <div>
         <h3 className="text-lg font-bold text-center md:text-3xl">{detail?.title}</h3>
         <h5 className="text-sm md:text-lg text-center mb-2 w-full text-red-700">{detail?.verse}</h5>
       </div>
