@@ -30,7 +30,7 @@ export function postSermon (values){
     }
 };
 
-export function updateSermon (values){
+export function updateSermon (values, id){
     return async function(dispatch){
         try {
             const headers = {'Content-Type':'application/json'}

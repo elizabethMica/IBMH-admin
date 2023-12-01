@@ -1,15 +1,15 @@
-import React from 'react'
-import {deleteSermon, getSermonDetail} from '../../Redux/Actions'
+import React, { useEffect, useState } from 'react'
+import {deleteSermon, getSermonDetail, updateSermon } from '../../Redux/Actions'
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react";
 import { NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import { RiEdit2Fill, RiDeleteBin2Fill } from "react-icons/ri";
+import {books} from '../PostSermon/arrayBooks'
 
 function SermonDetail() {
 
     const {id} = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -33,13 +33,13 @@ function SermonDetail() {
 
   return (
     <div className="pt-24" >
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center gap-2'>
          <NavLink to={`/update-sermon/${id}`}><button className='border-2 rounded-md p-1'><RiEdit2Fill size={20}/></button></NavLink>
-         <button className='border-2 rounded-md p-1' onClick={handleDelete}><RiDeleteBin2Fill size={20}/></button>
+         <button className='border-2  rounded-md p-1 hover:bg-red-500' onClick={handleDelete}><RiDeleteBin2Fill size={20}/></button>
         </div>
       <div>
         <h3 className="text-lg font-bold text-center md:text-3xl">{detail?.title}</h3>
-        <h5 className="text-sm md:text-lg text-center mb-2 w-full text-red-700">{detail?.verse}</h5>
+        <h5 className="text-sm md:text-lg text-center mb-2 w-full text-gray-500">{detail?.verse} | {detail?.preacher}</h5>
       </div>
           
       <section className="mx-8">
