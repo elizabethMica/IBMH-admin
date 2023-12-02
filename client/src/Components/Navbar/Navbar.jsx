@@ -19,7 +19,7 @@ function Navbar() {
           <div className='md:px-10 px-7 md:flex justify-between items-center bg-[#ffffff]'>
              {/* logo section */}
             <div className='flex flex-row cursor-pointer items-center gap-1'>
-              <NavLink to="/sermones">
+              <NavLink to="/">
                 <img
                   src={bookLogo}
                   width="50"
@@ -29,7 +29,7 @@ function Navbar() {
                   className='w-20 h-w-20'
                   /> 
               </NavLink>
-              <NavLink to="/sermones"><h3 className='font-semibold text-xl'>Administration</h3></NavLink>
+              <NavLink to="/"><h3 className='font-semibold text-xl'>Administration</h3></NavLink>
               </div>
     
                 <div onClick={()=> setIsOpen(!isOpen)} className='absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7'>
