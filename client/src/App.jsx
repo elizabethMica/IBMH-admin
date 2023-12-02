@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import SermonDetail from "./Components/SermonDetail/SermonDetail";
 import UpdateSermon from "./Components/UpdateSermon/UpdateSermon";
 import GetContact from "./Components/GetContact/GetContact";
+import Landing from "./Components/Landing/Landing";
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
     <>
     <Navbar/>
       <Routes>
+      <Route path="/" element={<Landing/>}/>
       <Route path="/sermones" element={<GetSermon/>}/>
       <Route path="/post-sermon" element={<PostSermon/>}/>
       <Route path="/sermon/:id" element={<SermonDetail/>}/>
