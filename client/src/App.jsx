@@ -6,6 +6,7 @@ import SermonDetail from "./Components/SermonDetail/SermonDetail";
 import UpdateSermon from "./Components/UpdateSermon/UpdateSermon";
 import GetContact from "./Components/GetContact/GetContact";
 import Landing from "./Components/Landing/Landing";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
  
@@ -22,6 +23,7 @@ function App() {
       <Route path="/contacts" element={<GetContact/>}/>
       <Route path='*' element={<Navigate replace to="/" />} />
       </Routes>
+    <Footer/>  
     </>
   )
 }

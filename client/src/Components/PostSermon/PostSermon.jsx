@@ -45,7 +45,7 @@ function PostSermon() {
   return (
     <div className='flex flex-col md:flex-row py-24 md:gap-2'>
         <div className='md:w-1/2 flex flex-col justify-center md:justify-start items-center'>
-        <h1 className='text-lg font-semibold underline decoration-gray-500'>Actualizar sermón</h1>
+        <h1 className='text-lg font-semibold underline decoration-gray-500'>Subir sermón</h1>
 
         <form onSubmit={(event)=>handleSubmit(event)} className='w-[300px] md:w-full md:px-6 flex flex-col'>
 
