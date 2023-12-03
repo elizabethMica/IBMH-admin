@@ -1,5 +1,5 @@
 import axios from "axios";
-import { POST_SERMON, UPDATE_SERMON, DELETE_SERMON, DELETE_CONTACT, GET_CONTACT, GET_SERMONS, GET_SERMON_DETAIL } from "./Action-types";
+import { POST_SERMON, UPDATE_SERMON, DELETE_SERMON, DELETE_CONTACT, GET_CONTACT, GET_SERMONS, GET_SERMON_DETAIL, GET_CONTACT_DETAIL } from "./Action-types";
 
 export function getAllSermon (){
     return async function(dispatch){
@@ -104,9 +104,9 @@ export function getSermonDetail (id){
 // export function getContactDetail (id){
 //     return async function(dispatch){
 //         try {
-//             const response = (await axios.get(`http://localhost:3001/sermon/${id}`)).data
+//             const response = (await axios.get(`http://localhost:3001/contact/${id}`)).data
 //             dispatch({
-//                 type: GET_SERMON_DETAIL,
+//                 type: GET_CONTACT_DETAIL,
 //                 payload: response
 //             })
 //         } catch (error) {

@@ -7,6 +7,7 @@ import UpdateSermon from "./Components/UpdateSermon/UpdateSermon";
 import GetContact from "./Components/GetContact/GetContact";
 import Landing from "./Components/Landing/Landing";
 import Footer from "./Components/Footer/Footer";
+// import ContactDetail from "./Components/ContactDetail/ContactDetail";
 
 function App() {
  
@@ -21,6 +22,7 @@ function App() {
       <Route path="/sermon/:id" element={<SermonDetail/>}/>
       <Route path="/update-sermon/:id" element={<UpdateSermon/>}/>
       <Route path="/contacts" element={<GetContact/>}/>
+      {/* <Route path="/contacts/:id" element={<ContactDetail/>}/> */}
       <Route path='*' element={<Navigate replace to="/" />} />
       </Routes>
     <Footer/>  

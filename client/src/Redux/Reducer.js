@@ -13,7 +13,7 @@ let initialState ={
     sermons: [],
     sermonDetail: [],
     contacts: [],
-    
+    // contactDetail: {}
 }
 
 function rootReducer(state = initialState, {type, payload}){
@@ -36,7 +36,12 @@ function rootReducer(state = initialState, {type, payload}){
             return{
                 ...state,
                 sermonDetail: payload
-            }            
+            }
+        // case GET_CONTACT_DETAIL: 
+        //     return{
+        //         ...state,
+        //         contactDetail: payload
+        //     }               
     
         default:
             return{
