@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSermon, getAllSermon } from '../../Redux/Actions';
 import {books} from '../PostSermon/arrayBooks'
@@ -38,6 +38,8 @@ function UpdateSermon() {
       [event.target.name] : event.target.value
      })
   }
+
+ 
 
   const handleSubmit =(event)=>{
     event.preventDefault();
@@ -186,6 +188,7 @@ function UpdateSermon() {
                 <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md' >Actualizar</button>
             </div>
         </form>
+                <NavLink to={`/sermon/${id}`}><button  className='mt-4 bg-gray-300 px-2 rounded-md' >Cancelar</button></NavLink>
         </div>
 
 
