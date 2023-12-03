@@ -30,7 +30,7 @@ function rootReducer(state = initialState, {type, payload}){
         case GET_CONTACT:
             return{
                 ...state,
-                contacts: payload
+                contacts: payload.toReversed()
             }
         case GET_SERMON_DETAIL:
             return{
