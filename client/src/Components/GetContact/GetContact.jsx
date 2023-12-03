@@ -15,8 +15,10 @@ function GetContact() {
     console.log(contacts)
 
   return (
-    <div className='pt-24'>
-        <h1>CONTACTOS</h1>
+    <div className='pt-24 flex flex-col '>
+      <div className='flex justify-center items-center'>
+        <h1 className='text-2xl font-semibold'>CONTACTOS</h1>
+      </div>
      {
         contacts.map(c => {
             return( 
@@ -27,7 +29,7 @@ function GetContact() {
             phone={c.phone}
             email={c.email}
             key={c.id}
-            
+
             />)
         })
      }

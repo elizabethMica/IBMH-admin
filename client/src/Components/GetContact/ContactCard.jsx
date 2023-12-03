@@ -19,22 +19,22 @@ function ContactCard(Props) {
     //   };
 
   return (
-        <div className='flex flex-col md:flex-row justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
-        <div className='flex gap-2 justify-center items-center border-b-2 w-full'>
+        <div className='flex flex-col md:flex-row md:gap-4 justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
+        <div className='flex gap-2 justify-center items-center border-b-2 md:border-r-2 md:border-b-0 md:justify-start md:mx-2 w-full'>
             <p className='text-lg'>{Props.name}</p>
             <p className='text-lg'>{Props.lastName}</p>
         </div>
-        <div className='flex flex-col text-sm justify-start items-start w-full rounded-md'>
-            <div className='flex gap-2'>
-                <FaPhone/>
+        <div className='flex flex-col md:flex-row md:items-center md:justify-center md:gap-4 text-sm justify-start items-start w-full rounded-md my-2'>
+            <div className='flex gap-2 md:items-center'>
+                <FaPhone size={17}/>
                 <p> {Props.phone} </p>
             </div>
-            <div className='flex gap-2'>
-                <MdEmail/>
+            <div className='flex gap-2 md:items-center'>
+                <MdEmail size={17}/>
                 <p> {Props.email} </p>
             </div>
         </div>
-        <div className='flex gap-2 bg-gray-300 w-full h-full'>
+        <div className='flex gap-2 bg-gray-300 w-full h-full p-2'>
             <p>{Props.message}</p>
         </div>
         {/* <div className='flex justify-center self-center mt-2'>
