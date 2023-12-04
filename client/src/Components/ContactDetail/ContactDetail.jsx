@@ -31,28 +31,28 @@ const goBack =()=>{
 const detail = useSelector(state => state.contactDetail)
 
 return (
-<div className='pt-24'> 
-    <div className='flex flex-col md:flex-row justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
+<div className='pt-32 md:mx-16 max-h-screen'> 
+    <div className='flex flex-col  justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
     
-        <div className='flex gap-2 justify-center items-center border-b-2 w-full'>
-        <p className='text-lg'>{detail.name}</p>
-        <p className='text-lg'>{detail.lastName}</p>
+        <div className='flex gap-2 justify-center items-center border-b-2  w-full'>
+        <p className='text-lg md:text-2xl'>{detail.name}</p>
+        <p className='text-lg md:text-2xl'>{detail.lastName}</p>
         </div>
-        <div className='flex flex-col text-sm justify-start items-start w-full rounded-md'>
-            <div className='flex gap-2'>
-                <FaPhone/>
+        <div className='flex flex-col md:flex-row md:items-center md:justify-center md:gap-4 text-sm justify-start items-start w-full rounded-md my-2 md:my-4 md:text-lg'>
+            <div  className='flex gap-2 md:items-center'>
+                <FaPhone size={17}/>
                 <p> {detail.phone} </p>
             </div>
-            <div className='flex gap-2'>
-                <MdEmail/>
+            <div  className='flex gap-2 md:items-center'>
+                <MdEmail size={17}/>
                 <p> {detail.email} </p>
             </div>
         </div>
-        <div className='flex gap-2 bg-gray-300 w-full h-full'>
+        <div className='flex gap-2 bg-gray-300 w-full h-full p-2'>
             <p>{detail.message}</p>
         </div>
-        <div className='flex justify-center self-center mt-2'>
-            <button onClick={(event)=>handleDelete(event)}><RiDeleteBin2Fill/></button>
+        <div className='flex justify-center self-center mt-4'>
+            <button onClick={(event)=>handleDelete(event)}><RiDeleteBin2Fill size={20}className='hover:text-red-700'/></button>
         </div>
     </div>
     <div className='flex justify-center items-center mb-20'>
