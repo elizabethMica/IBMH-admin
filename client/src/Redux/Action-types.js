@@ -6,3 +6,4 @@ export const POST_SERMON = "POST_SERMON";
 export const DELETE_SERMON = "DELETE_SERMON";
 export const UPDATE_SERMON = "UPDATE_SERMON";
 export const DELETE_CONTACT = "DELETE_CONTACT";
+export const PAGINADO = "PAGINADO";

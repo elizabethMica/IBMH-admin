@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
 import { getAllSermon } from '../../Redux/Actions'
 import SermonCard from './SermonCard'
+import Paginate from '../Paginate/Paginate'
 
 function GetSermon() {
 
     const dispatch =useDispatch()
-    const sermones = useSelector(state => state.sermons)
+    const sermones = useSelector(state => state.paginado)
 
      useEffect(()=>{
       window.scrollTo(0,0)
@@ -38,6 +39,7 @@ function GetSermon() {
             )
         })}
         </div>
+        <Paginate/>
     </div>
   )
 }

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '/logoBlack.png'
 import { NavLink } from 'react-router-dom'
 
 function Landing() {
+  useEffect(()=>{
+   window.scrollTo(0,0)
+  },[])
   return (
     <div className='md:pt-14 pt-24 pb-14 flex justify-center items-center flex-col '>
         <img src={logo} alt="" className='w-1/2 md:w-[450px] h-full'/>

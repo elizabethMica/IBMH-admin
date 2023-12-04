@@ -1,5 +1,13 @@
 import axios from "axios";
-import { POST_SERMON, UPDATE_SERMON, DELETE_SERMON, DELETE_CONTACT, GET_CONTACT, GET_SERMONS, GET_SERMON_DETAIL, GET_CONTACT_DETAIL } from "./Action-types";
+import { POST_SERMON, 
+    UPDATE_SERMON, 
+    DELETE_SERMON, 
+    DELETE_CONTACT, 
+    GET_CONTACT, 
+    GET_SERMONS,
+    GET_SERMON_DETAIL, 
+    GET_CONTACT_DETAIL, 
+    PAGINADO } from "./Action-types";
 
 export function getAllSermon (){
     return async function(dispatch){
@@ -114,3 +122,12 @@ export function getContactDetail (id){
         }
     }
 };
+
+export function paginado(value){
+    return async function(dispatch){
+     dispatch({
+         type: PAGINADO,
+         payload: value
+     })
+    }
+ };
