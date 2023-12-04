@@ -101,16 +101,16 @@ export function getSermonDetail (id){
     }
 };
 
-// export function getContactDetail (id){
-//     return async function(dispatch){
-//         try {
-//             const response = (await axios.get(`http://localhost:3001/contact/${id}`)).data
-//             dispatch({
-//                 type: GET_CONTACT_DETAIL,
-//                 payload: response
-//             })
-//         } catch (error) {
-//             throw Error(error.message)
-//         }
-//     }
-// };
+export function getContactDetail (id){
+    return async function(dispatch){
+        try {
+            const response = (await axios.get(`http://localhost:3001/contact/${id}`)).data
+            dispatch({
+                type: GET_CONTACT_DETAIL,
+                payload: response
+            })
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+};
