@@ -8,17 +8,7 @@ import { deleteContact } from '../../Redux/Actions';
 
 function ContactCard(Props) {
 
-
-
-    const dispatch = useDispatch();
-    // const id = Props.id
-    // const handleDelete =(event)=>{
-    //     event.preventDefault()
-    //     let confirmación = confirm("Desea borrar este contacto?")
-    //     if(confirmación === true){
-    //         dispatch(deleteContact(id))
-    //     }
-    //   };
+  
 
   return (
         <NavLink to={`/contact/${Props.id}`}>
@@ -40,9 +30,6 @@ function ContactCard(Props) {
         <div className='flex gap-2 bg-gray-300 w-full h-full p-2'>
             <p>{Props.message}</p>
         </div>
-        {/* <div className='flex justify-center self-center mt-2'>
-            <button onClick={(event)=>handleDelete(event)}><RiDeleteBin2Fill/></button>
-        </div> */}
     </div>
     </NavLink>
   )

@@ -12,7 +12,6 @@ function GetContact() {
     },[dispatch])
 
     const contacts = useSelector(state => state.contacts);
-    console.log(contacts)
 
   return (
     <div className='pt-24 flex flex-col '>
