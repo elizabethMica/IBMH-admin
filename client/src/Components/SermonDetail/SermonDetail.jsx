@@ -30,7 +30,10 @@ function SermonDetail() {
         }
       };
 
-
+      const goBack =()=>{
+        navigate(-1)
+      }
+      
   return (
     <div className="pt-24" >
         <div className='flex justify-center items-center gap-2'>
@@ -64,6 +67,9 @@ function SermonDetail() {
           </div>) : null
         }
         </section>
+        <div className='flex justify-center items-center mb-20'>
+        <button onClick={goBack} className='bg-gray-300 rounded-md px-2 py-1'>Volver</button>
+    </div>
         </div>
   )
 }
