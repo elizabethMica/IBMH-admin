@@ -29,7 +29,7 @@ function GetContact() {
             phone={c.phone}
             email={c.email}
             key={c.id}
-
+            id={c.id}
             />)
         })
      }

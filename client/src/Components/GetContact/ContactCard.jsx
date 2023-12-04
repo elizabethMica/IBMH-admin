@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, NavLink} from 'react-router-dom';
+import { useNavigate, NavLink, useParams} from 'react-router-dom';
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { RiDeleteBin2Fill} from 'react-icons/ri'
@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../Redux/Actions';
 
 function ContactCard(Props) {
+
+
 
     const dispatch = useDispatch();
     // const id = Props.id
@@ -19,6 +21,7 @@ function ContactCard(Props) {
     //   };
 
   return (
+        <NavLink to={`/contact/${Props.id}`}>
         <div className='flex flex-col md:flex-row md:gap-4 justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
         <div className='flex gap-2 justify-center items-center border-b-2 md:border-r-2 md:border-b-0 md:justify-start md:mx-2 w-full'>
             <p className='text-lg'>{Props.name}</p>
@@ -41,6 +44,7 @@ function ContactCard(Props) {
             <button onClick={(event)=>handleDelete(event)}><RiDeleteBin2Fill/></button>
         </div> */}
     </div>
+    </NavLink>
   )
 }
 

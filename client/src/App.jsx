@@ -22,7 +22,7 @@ function App() {
       <Route path="/sermon/:id" element={<SermonDetail/>}/>
       <Route path="/update-sermon/:id" element={<UpdateSermon/>}/>
       <Route path="/contacts" element={<GetContact/>}/>
-      <Route path="/contacts/:id" element={<ContactDetail/>}/>
+      <Route path="/contact/:id" element={<ContactDetail/>}/>
       <Route path='*' element={<Navigate replace to="/" />} />
       </Routes>
     <Footer/>  

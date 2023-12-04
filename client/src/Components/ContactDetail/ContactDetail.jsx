@@ -7,12 +7,14 @@ import { useDispatch, useSelector} from 'react-redux';
 import { deleteContact, getContactDetail } from '../../Redux/Actions';
 function ContactDetail() {
 const {id} = useParams()
-const detail = useSelector(state => state.contactDetail)
 const dispatch = useDispatch()
 
 useEffect(()=>{
-  dispatch(getContactDetail(id))
+    dispatch(getContactDetail(id))
 },[])
+
+const detail = useSelector(state => state.contactDetail)
+
 return (
     <div> <div className='flex flex-col md:flex-row justify-center items-start md:items-center mx-8 my-4 border-2  rounded-md p-2'>
     <div className='flex gap-2 justify-center items-center border-b-2 w-full'>
