@@ -33,6 +33,14 @@ function PostSermon() {
          })
     }
 
+    // const handleArray = (event)=>{
+    //   event.preventDefault()
+    //   const push = value?.keywords?.push(event.target.value)
+    //   setValue({
+    //     ...value,
+    //     keywords:push
+    //   })
+    // }
 
     const handleSubmit =(event)=>{
         event.preventDefault();
@@ -149,13 +157,15 @@ function PostSermon() {
             </div>
 
         {/* //manejar distinto, es un array
-            <div>
+            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
                 <label> Palabras claves (Opcional) </label>
                 <input 
+                className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
                 placeholder="Ej: Atributos de Dios"
                 name="keywords"
                 onChange={handleChange}/>
+                <button onClick={(event)=>handleArray(event)} className='bg-gray-300 px-2 py-1'>+</button>
             </div> */}
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col'>
