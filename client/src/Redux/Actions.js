@@ -7,7 +7,9 @@ import { POST_SERMON,
     GET_SERMONS,
     GET_SERMON_DETAIL, 
     GET_CONTACT_DETAIL, 
-    PAGINADO } from "./Action-types";
+    PAGINADO,
+    GET_LAST_THREE 
+ } from "./Action-types";
 
 export function getAllSermon (){
     return async function(dispatch){
@@ -131,3 +133,17 @@ export function paginado(value){
      })
     }
  };
+
+ export function getLastThree (){
+    return async function(dispatch){
+        try{
+            const response =(await axios.get('http://localhost:3001/sermon')).data
+            dispatch({
+                type: GET_LAST_THREE,
+                payload: response
+            })
+        } catch (error) {
+            throw Error(error.message)
+          }
+    }
+};

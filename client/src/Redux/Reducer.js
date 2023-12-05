@@ -7,7 +7,8 @@ import {
     DELETE_SERMON,
     UPDATE_SERMON,
     POST_SERMON,
-    PAGINADO
+    PAGINADO,
+    GET_LAST_THREE
 } from './Action-types'
 
 let initialState ={
@@ -15,7 +16,7 @@ let initialState ={
     sermonDetail: [],
     contacts: [],
     contactDetail: {},
-
+    lastThree: [],
     //paginado
     pageNumbers:[],
     paginado:[],
@@ -32,6 +33,13 @@ function rootReducer(state = initialState, {type, payload}){
             return{
                 ...state
             }
+        case GET_LAST_THREE:
+                let aux = payload.slice(-3)
+                let lastFirst = aux.toReversed()
+                return{
+                    ...state,
+                    lastThree: lastFirst
+        }    
         case GET_SERMONS:
             const reorderSermons = payload.toReversed()
             const totalPagesGet = Math.ceil(reorderSermons.length / ITEMS_PER_PAGE)
