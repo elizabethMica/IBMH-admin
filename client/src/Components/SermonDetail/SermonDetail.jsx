@@ -31,7 +31,7 @@ function SermonDetail() {
       };
 
       const goBack =()=>{
-        navigate(-1)
+        navigate("/sermones")
       }
       
   return (
