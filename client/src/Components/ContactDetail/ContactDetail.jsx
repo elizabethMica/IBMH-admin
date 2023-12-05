@@ -48,15 +48,14 @@ return (
                 <p> {detail.email} </p>
             </div>
         </div>
-        <div className='flex gap-2 bg-gray-300 w-full h-full p-2'>
+        <div className='flex gap-2 bg-gray-300 w-full h-full py-2 px-4'>
             <p>{detail.message}</p>
         </div>
-        <div className='flex justify-center self-center mt-4'>
-            <button onClick={(event)=>handleDelete(event)}><RiDeleteBin2Fill size={20}className='hover:text-red-700'/></button>
-        </div>
+        
     </div>
-    <div className='flex justify-center items-center mb-20'>
+    <div className='flex justify-center items-center mb-20 gap-2 '>
         <button onClick={goBack} className='bg-gray-300 rounded-md px-2 py-1'>Volver</button>
+        <button onClick={(event)=>handleDelete(event)} className='hover:bg-red-600 px-2 py-1  rounded-md border-2 hover:border-red-600'>Borrar</button>
     </div>
 </div>
   )

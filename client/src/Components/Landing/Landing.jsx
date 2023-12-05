@@ -33,7 +33,7 @@ function Landing() {
     // </div>
     <div className='pt-24 md:mx-14 mx-8 pb-16'>
         <div className='flex justify-between items-center mb-4 '>
-          <h3 className='text-xl font-semibold '>Sermones</h3>
+          <h3 className='text-xl font-semibold '>SERMONES</h3>
           <NavLink><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4'>Ver más sermones</button></NavLink>
         </div>
         <div  className='flex flex-col justify-center items-center md:items-start md:flex-row md:flex-wrap md:gap-10'>
@@ -42,6 +42,7 @@ function Landing() {
             return(
               <SermonCard
                 key={s.id}
+                id={s.id}
                 title={s.title}
                 date={s.date}
                 verse={s.verse}
@@ -55,14 +56,15 @@ function Landing() {
           lastFour.length > 0 ? (
         <div className='mt-6'>
           <div className='flex justify-between items-center mb-4'>
-            <h3 className='text-xl font-semibold '>Contactos</h3>
-            <NavLink><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4'>Ver más contactos</button></NavLink>
+            <h3 className='text-xl font-semibold '>CONTACTOS</h3>
+            <NavLink to="/contacts"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4'>Ver más contactos</button></NavLink>
           </div>
           <div>
           {lastFour?.map(s =>{
             return(
               <ContactCard
                 key={s.id}
+                id={s.id}
                 name={s.name}
                 lastName={s.lastName}
                 phone={s.phone}
