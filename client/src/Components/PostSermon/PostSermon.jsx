@@ -179,7 +179,7 @@ function PostSermon() {
             </div>
 
             <div className='flex justify-center items-center '>
-                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' >Actualizar</button>
+                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' >Subir</button>
             </div>
         </form>
         </div>
