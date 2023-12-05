@@ -58,7 +58,7 @@ function PostSermon() {
         <form onSubmit={(event)=>handleSubmit(event)} className='w-[300px] md:w-full md:px-6 flex flex-col'>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Titulo</label>
+                <label className='text-sm md:text-lg text-black'> Titulo</label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -68,7 +68,7 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Imagen de portada (Link)</label>
+                <label className='text-sm md:text-lg text-black'> Imagen de portada (Link)</label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -81,7 +81,7 @@ function PostSermon() {
             
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Fecha </label>
+                <label className='text-sm md:text-lg text-black'> Fecha </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -91,7 +91,7 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Video </label>
+                <label className='text-sm md:text-lg text-black'> Video </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -101,7 +101,7 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Cita </label>
+                <label className='text-sm md:text-lg text-black'> Cita </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -112,7 +112,7 @@ function PostSermon() {
 
            
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Libro </label>
+                <label className='text-sm md:text-lg text-black'> Libro </label>
                 <select onChange={(event)=> handleChange(event)} name="book" className='bg-gray-300 rounded-md'>
                     {
                         books?.map(b =>{
@@ -127,7 +127,7 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Predicador </label>
+                <label className='text-sm md:text-lg text-black'> Predicador </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -137,7 +137,7 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Versiculo </label>
+                <label className='text-sm md:text-lg text-black'> Versiculo </label>
                 <textarea
                 className='w-full min-h-[150px] border-2  rounded-md text-start'
                 type="text" 
@@ -147,11 +147,11 @@ function PostSermon() {
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label className='text-sm md:text-lg text-gray-500'> Descripción (Opcional) </label>
+                <label className='text-sm md:text-lg text-black'> Descripción (Opcional) </label>
                 <textarea 
                 className='w-full min-h-[150px] border-2  rounded-md text-start'
                 type="text" 
-                placeholder="Descripción (No versiculo)"
+                placeholder="Descripción que no sea el versiculo"
                 name="description"
                 onChange={handleChange}/>
             </div>
@@ -169,7 +169,7 @@ function PostSermon() {
             </div> */}
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col'>
-                <label className='text-sm md:text-lg text-gray-500'> Audio de Spotify (Opcional) </label>
+                <label className='text-sm md:text-lg text-black'> Audio de Spotify (Opcional) </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
                 type="text" 
@@ -179,7 +179,7 @@ function PostSermon() {
             </div>
 
             <div className='flex justify-center items-center '>
-                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md' >Actualizar</button>
+                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' >Actualizar</button>
             </div>
         </form>
         </div>
