@@ -37,8 +37,9 @@ function SermonDetail() {
   return (
     <div className="pt-24" >
         <div className='flex justify-center items-center gap-2'>
-         <NavLink to={`/update-sermon/${id}`}><button className='border-2 rounded-md p-1'><RiEdit2Fill size={20}/></button></NavLink>
-         <button className='border-2  rounded-md p-1 hover:bg-red-500' onClick={handleDelete}><RiDeleteBin2Fill size={20}/></button>
+         <button onClick={goBack} className='bg-gray-300 rounded-md px-2 py-1 border-2 border-gray-300 hover:bg-gray-400'>Volver</button>
+         <NavLink to={`/update-sermon/${id}`}><button className='border-2 rounded-md p-1 hover:bg-gray-300 hover:border-gray-300'>Editar</button></NavLink>
+         <button className='border-2 hover:border-red-600 rounded-md p-1 hover:bg-red-600' onClick={handleDelete}>Borrar</button>
         </div>
       <div>
         <h3 className="text-lg font-bold text-center md:text-3xl">{detail?.title}</h3>
@@ -67,9 +68,7 @@ function SermonDetail() {
           </div>) : null
         }
         </section>
-        <div className='flex justify-center items-center mb-20'>
-        <button onClick={goBack} className='bg-gray-300 rounded-md px-2 py-1'>Volver</button>
-    </div>
+        
         </div>
   )
 }
