@@ -8,7 +8,9 @@ import {
     UPDATE_SERMON,
     POST_SERMON,
     PAGINADO,
-    GET_LAST_THREE
+    GET_LAST_THREE,
+    ERRORS,
+    CLEAR_ERRORS
 } from './Action-types'
 
 let initialState ={
@@ -17,6 +19,7 @@ let initialState ={
     contacts: [],
     contactDetail: {},
     lastThree: [],
+    errors:{},
     //paginado
     pageNumbers:[],
     paginado:[],

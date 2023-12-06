@@ -7,4 +7,6 @@ export const DELETE_SERMON = "DELETE_SERMON";
 export const UPDATE_SERMON = "UPDATE_SERMON";
 export const DELETE_CONTACT = "DELETE_CONTACT";
 export const PAGINADO = "PAGINADO";
-export const GET_LAST_THREE = "GET_LAST_THREE"
+export const GET_LAST_THREE = "GET_LAST_THREE";
+export const ERRORS = "ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

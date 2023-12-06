@@ -8,7 +8,9 @@ import { POST_SERMON,
     GET_SERMON_DETAIL, 
     GET_CONTACT_DETAIL, 
     PAGINADO,
-    GET_LAST_THREE 
+    GET_LAST_THREE,
+    ERRORS,
+    CLEAR_ERRORS 
  } from "./Action-types";
 
 export function getAllSermon (){
@@ -145,5 +147,25 @@ export function paginado(value){
         } catch (error) {
             throw Error(error.message)
           }
+    }
+};
+
+
+export function setNewErrors(obj){
+    return async function(dispatch){
+        dispatch({
+            type: ERRORS,
+            payload: obj
+        })
+    }
+};
+
+
+
+export function clearErrors(){
+    return async function(dispatch){
+        dispatch({
+            type: CLEAR_ERRORS
+        })
     }
 };
