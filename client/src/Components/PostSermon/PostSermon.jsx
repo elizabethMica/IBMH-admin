@@ -4,9 +4,11 @@ import { getAllSermon, postSermon } from '../../Redux/Actions'
 import {books} from './arrayBooks'
 import { GoDotFill } from "react-icons/go";
 import { Link } from 'react-router-dom';
-
+import validation from './validation';
 
 function PostSermon() {
+
+    const [errors, setErrors] = useState({});
 
     const dispatch =useDispatch()
     const [value, setValue] = useState({
@@ -28,10 +30,14 @@ function PostSermon() {
 
     const handleChange =(event)=>{
         event.preventDefault();
-         setValue({
+        setValue({
           ...value,
           [event.target.name] : event.target.value
-         })
+        })
+        setErrors(validation({
+            ...value,
+            [event.target.name]: event.target.value
+        }));
     }
 
 
