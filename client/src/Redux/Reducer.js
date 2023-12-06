@@ -117,7 +117,18 @@ function rootReducer(state = initialState, {type, payload}){
                 currentPage: current,
                 paginado: sermonRender,
                 pages: pages
-            }    
+            }
+        case ERRORS:
+            const objError = payload
+            return{
+                ...state,
+                errors: {...state.errors, [obj.type]: objError.error}
+            }
+        case CLEAR_ERRORS:
+            return{
+                ...state,
+                errors: {}
+            }            
     
         default:
             return{
