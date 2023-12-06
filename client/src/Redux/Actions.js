@@ -37,7 +37,7 @@ export function postSermon (value){
                type: POST_SERMON,
                payload: response
             })
-            return false
+            return null
         } catch (error) {
             dispatch({
                 type: ERRORS,

@@ -29,9 +29,7 @@ function PostSermon() {
     const embed = "https://www.youtube.com/embed/"
     const videoLink = value?.videoYT?.split("/")[3]
 
-    useEffect(()=>{
-      return()=>dispatch(clearErrors())
-    },[dispatch])
+   
 
     const handleChange =(event)=>{
         event.preventDefault();
@@ -45,7 +43,7 @@ function PostSermon() {
         }));
     }
 
-    console.log("value front",value)
+    
 
     const isSubmitDisabled = Object.keys(errors).length > 0;
 
@@ -53,7 +51,7 @@ function PostSermon() {
         event.preventDefault();
 
         dispatch(postSermon(value)).then((postError)=>{
-            
+            console.log(postError)
             if(!postError){
                 setValue({
                     title: "",
@@ -71,11 +69,12 @@ function PostSermon() {
                 dispatch(getAllSermon())
                 alert("Sermón subido con éxito")
                 navigate("/sermones")
-                dispatch(clearErrors())
+               
             }else{
                 dispatch(setNewErrors({type:"postSermon", error: postError?.response?.data}))
+                console.log("global", globalErrors)
             }
-        })
+        });
     };
 
   return (
