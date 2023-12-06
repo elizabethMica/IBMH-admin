@@ -64,6 +64,7 @@ function PostSermon() {
                 placeholder="Titulo de la predica"
                 name="title"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.title ? 'visible' : 'hidden' }}>{errors.title}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -74,7 +75,7 @@ function PostSermon() {
                 placeholder="URL de la imagen para la portada"
                 name="cover"
                 onChange={handleChange}/>
-
+                <p className="text-red-600" style={{ visibility: errors.cover ? 'visible' : 'hidden' }}>{errors.cover}</p>
             </div>
 
             
@@ -87,6 +88,7 @@ function PostSermon() {
                 placeholder="Fecha de la predicación"
                 name="date"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.date ? 'visible' : 'hidden' }}>{errors.date}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -97,6 +99,7 @@ function PostSermon() {
                 placeholder="URL del video de YouTube"
                 name="videoYT"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.videoYT ? 'visible' : 'hidden' }}>{errors.videoYT}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -107,6 +110,7 @@ function PostSermon() {
                 placeholder="Ej: Romanos 5:8"
                 name="verse"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.verse ? 'visible' : 'hidden' }}>{errors.verse}</p>
             </div>
 
            
@@ -119,6 +123,7 @@ function PostSermon() {
                         })
                     }
                 </select>
+                <p className="text-red-600" style={{ visibility: errors.book ? 'visible' : 'hidden' }}>{errors.book}</p>
                 <div className='flex justify-start items-center my-2'>
                 <GoDotFill size={10}/>
                 <p className=''>{value?.book}</p>
@@ -133,6 +138,7 @@ function PostSermon() {
                 placeholder="Nombre y Apellido"
                 name="preacher"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.preacher ? 'visible' : 'hidden' }}>{errors.preacher}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -143,6 +149,7 @@ function PostSermon() {
                 placeholder="Texto del versiculo (sin números)"
                 name="verseText"
                 onChange={handleChange}/>
+                <p className="text-red-600" style={{ visibility: errors.verseText ? 'visible' : 'hidden' }}>{errors.verseText}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
