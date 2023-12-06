@@ -17,5 +17,5 @@ export default function validation(value){
 
     if(!value.cover){errors.cover = "Se requiere: Link de la imagen"}
 
-    
+    return errors;
 }
