@@ -122,7 +122,7 @@ function rootReducer(state = initialState, {type, payload}){
             const objError = payload
             return{
                 ...state,
-                errors: {...state.errors, [obj.type]: objError.error}
+                errors: {...state.errors, [objError.type]: objError.error}
             }
         case CLEAR_ERRORS:
             return{

@@ -27,17 +27,23 @@ export function getAllSermon (){
     }
 };
 
-export function postSermon (values){
+export function postSermon (value){
+    console.log("values action", value)
     return async function(dispatch){
         try {
             const headers = {'Content-Type':'application/json'}
-            const response = (await axios.post("http://localhost:3001/sermon-post", values, {headers})).data
+            const response = (await axios.post("http://localhost:3001/sermon-post", value, {headers})).data
             dispatch({
                type: POST_SERMON,
                payload: response
             })
+            return false
         } catch (error) {
-            throw Error(error.message)
+            dispatch({
+                type: ERRORS,
+                payload: {type: "postSermon", error: error?.response?.data}
+            })
+            return error
         }
     }
 };

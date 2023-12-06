@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import { getAllSermon, postSermon } from '../../Redux/Actions'
+import React, {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { getAllSermon, postSermon, clearErrors, setNewErrors } from '../../Redux/Actions'
 import {books} from './arrayBooks'
 import { GoDotFill } from "react-icons/go";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import validation from './validation';
 
 function PostSermon() {
-
+    const globalErrors = useSelector(state => state.errors)
     const [errors, setErrors] = useState({});
 
+    const navigate = useNavigate()
     const dispatch =useDispatch()
     const [value, setValue] = useState({
         title: "",
@@ -28,6 +29,10 @@ function PostSermon() {
     const embed = "https://www.youtube.com/embed/"
     const videoLink = value?.videoYT?.split("/")[3]
 
+    useEffect(()=>{
+      return()=>dispatch(clearErrors())
+    },[dispatch])
+
     const handleChange =(event)=>{
         event.preventDefault();
         setValue({
@@ -40,14 +45,38 @@ function PostSermon() {
         }));
     }
 
+    console.log("value front",value)
+
+    const isSubmitDisabled = Object.keys(errors).length > 0;
 
     const handleSubmit =(event)=>{
         event.preventDefault();
-        dispatch(postSermon(value))
-        alert("Sermon subido con éxito")
-        dispatch(getAllSermon())
-        setValue("")
-    }
+
+        dispatch(postSermon(value)).then((postError)=>{
+            
+            if(!postError){
+                setValue({
+                    title: "",
+                    description: "",
+                    cover: "",
+                    date: "",
+                    videoYT: "",
+                    verse: "",
+                    book: "",
+                    preacher: "",
+                    verseText: "",
+                    keywords: "",
+                    spotifyLink: "" 
+                })
+                dispatch(getAllSermon())
+                alert("Sermón subido con éxito")
+                navigate("/sermones")
+                dispatch(clearErrors())
+            }else{
+                dispatch(setNewErrors({type:"postSermon", error: postError?.response?.data}))
+            }
+        })
+    };
 
   return (
     <div className='flex flex-col md:flex-row py-24 md:gap-2'>
@@ -64,7 +93,7 @@ function PostSermon() {
                 placeholder="Titulo de la predica"
                 name="title"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.title ? 'visible' : 'hidden' }}>{errors.title}</p>
+                <p className="text-red-600" style={{ visibility: errors?.title ? 'visible' : 'hidden' }}>{errors?.title}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -75,7 +104,7 @@ function PostSermon() {
                 placeholder="URL de la imagen para la portada"
                 name="cover"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.cover ? 'visible' : 'hidden' }}>{errors.cover}</p>
+                <p className="text-red-600" style={{ visibility: errors?.cover ? 'visible' : 'hidden' }}>{errors?.cover}</p>
             </div>
 
             
@@ -88,7 +117,7 @@ function PostSermon() {
                 placeholder="Fecha de la predicación"
                 name="date"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.date ? 'visible' : 'hidden' }}>{errors.date}</p>
+                <p className="text-red-600" style={{ visibility: errors?.date ? 'visible' : 'hidden' }}>{errors?.date}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -99,7 +128,7 @@ function PostSermon() {
                 placeholder="URL del video de YouTube"
                 name="videoYT"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.videoYT ? 'visible' : 'hidden' }}>{errors.videoYT}</p>
+                <p className="text-red-600" style={{ visibility: errors?.videoYT ? 'visible' : 'hidden' }}>{errors?.videoYT}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -110,7 +139,7 @@ function PostSermon() {
                 placeholder="Ej: Romanos 5:8"
                 name="verse"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.verse ? 'visible' : 'hidden' }}>{errors.verse}</p>
+                <p className="text-red-600" style={{ visibility: errors?.verse ? 'visible' : 'hidden' }}>{errors?.verse}</p>
             </div>
 
            
@@ -123,7 +152,7 @@ function PostSermon() {
                         })
                     }
                 </select>
-                <p className="text-red-600" style={{ visibility: errors.book ? 'visible' : 'hidden' }}>{errors.book}</p>
+                <p className="text-red-600" style={{ visibility: errors?.book ? 'visible' : 'hidden' }}>{errors?.book}</p>
                 <div className='flex justify-start items-center my-2'>
                 <GoDotFill size={10}/>
                 <p className=''>{value?.book}</p>
@@ -138,7 +167,7 @@ function PostSermon() {
                 placeholder="Nombre y Apellido"
                 name="preacher"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.preacher ? 'visible' : 'hidden' }}>{errors.preacher}</p>
+                <p className="text-red-600" style={{ visibility: errors?.preacher ? 'visible' : 'hidden' }}>{errors?.preacher}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -149,7 +178,7 @@ function PostSermon() {
                 placeholder="Texto del versiculo (sin números)"
                 name="verseText"
                 onChange={handleChange}/>
-                <p className="text-red-600" style={{ visibility: errors.verseText ? 'visible' : 'hidden' }}>{errors.verseText}</p>
+                <p className="text-red-600" style={{ visibility: errors?.verseText ? 'visible' : 'hidden' }}>{errors?.verseText}</p>
             </div>
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
@@ -162,17 +191,6 @@ function PostSermon() {
                 onChange={handleChange}/>
             </div>
 
-        {/* //manejar distinto, es un array
-            <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
-                <label> Palabras claves (Opcional) </label>
-                <input 
-                className='w-full h-[45px] border-2  rounded-md text-start'
-                type="text" 
-                placeholder="Ej: Atributos de Dios"
-                name="keywords"
-                onChange={handleChange}/>
-                <button onClick={(event)=>handleArray(event)} className='bg-gray-300 px-2 py-1'>+</button>
-            </div> */}
 
             <div className='w-[300px] md:w-full md:px-6 flex flex-col'>
                 <label className='text-sm md:text-lg text-black'> Audio de Spotify (Opcional) </label>
@@ -185,8 +203,9 @@ function PostSermon() {
             </div>
 
             <div className='flex justify-center items-center '>
-                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' >Subir</button>
+                <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' disabled={isSubmitDisabled} style={isSubmitDisabled ? {opacity: "0.6", cursor: "not-allowed"}:null}>Subir</button>
             </div>
+            <p className="text-red-600" style={{ visibility: globalErrors?.postSermon?.error ? 'visible' : 'hidden' }}>{globalErrors?.postSermon?.error}</p>
         </form>
         </div>
 
@@ -194,10 +213,10 @@ function PostSermon() {
         <div className='md:w-1/2 flex flex-col justify-start items-center pt-8 md:pt-0'>
 
             {
-                value.cover ? (
+                value?.cover ? (
                   <div className=' flex flex-col justify-start items-center mb-8'>
                      <h3 className='text-lg font-semibold underline decoration-gray-500 mb-4'>Portada</h3>
-                     <img src={value.cover} className='rounded-lg w-[300px] h-[200px] md:w-[480px] md:h-[300px]'/>
+                     <img src={value?.cover} className='rounded-lg w-[300px] h-[200px] md:w-[480px] md:h-[300px]'/>
                   </div>
                 ) : null
             }
