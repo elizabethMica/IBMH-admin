@@ -5,6 +5,7 @@ import {books} from './arrayBooks'
 import { GoDotFill } from "react-icons/go";
 import { Link } from 'react-router-dom';
 
+
 function PostSermon() {
 
     const dispatch =useDispatch()
@@ -33,14 +34,6 @@ function PostSermon() {
          })
     }
 
-    // const handleArray = (event)=>{
-    //   event.preventDefault()
-    //   const push = value?.keywords?.push(event.target.value)
-    //   setValue({
-    //     ...value,
-    //     keywords:push
-    //   })
-    // }
 
     const handleSubmit =(event)=>{
         event.preventDefault();
