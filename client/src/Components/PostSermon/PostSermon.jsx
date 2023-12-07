@@ -144,7 +144,7 @@ function PostSermon() {
            
             <div className='w-[300px] md:w-full md:px-6 flex flex-col mb-4'>
                 <label className='text-sm md:text-lg text-black'> Libro </label>
-                <select onChange={(event)=> handleChange(event)} name="book" className='bg-gray-300 rounded-md'>
+                <select onClick={(event)=> handleChange(event)} name="book" className='bg-gray-300 rounded-md'>
                     {
                         books?.map(b =>{
                             return <option value={b?.name}>{b?.name}</option>
