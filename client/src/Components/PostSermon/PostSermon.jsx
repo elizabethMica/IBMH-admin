@@ -50,31 +50,23 @@ function PostSermon() {
     const handleSubmit =(event)=>{
         event.preventDefault();
 
-        dispatch(postSermon(value)).then((postError)=>{
-            console.log(postError)
-            if(!postError){
-                setValue({
-                    title: "",
-                    description: "",
-                    cover: "",
-                    date: "",
-                    videoYT: "",
-                    verse: "",
-                    book: "",
-                    preacher: "",
-                    verseText: "",
-                    keywords: "",
-                    spotifyLink: "" 
-                })
-                dispatch(getAllSermon())
-                alert("Sermón subido con éxito")
-                navigate("/sermones")
-               
-            }else{
-                dispatch(setNewErrors({type:"postSermon", error: postError?.response?.data}))
-                console.log("global", globalErrors)
-            }
-        });
+        dispatch(postSermon(value))
+        setValue({
+            title: "",
+            description: "",
+            cover: "",
+            date: "",
+            videoYT: "",
+            verse: "",
+            book: "",
+            preacher: "",
+            verseText: "",
+            keywords: "",
+            spotifyLink: "" 
+        })
+        dispatch(getAllSermon())
+        alert("Sermón subido con éxito")
+        navigate("/sermones")
     };
 
   return (
@@ -204,7 +196,6 @@ function PostSermon() {
             <div className='flex justify-center items-center '>
                 <button type="submit" className='mt-4 bg-green-500 px-2 rounded-md text-white' disabled={isSubmitDisabled} style={isSubmitDisabled ? {opacity: "0.6", cursor: "not-allowed"}:null}>Subir</button>
             </div>
-            <p className="text-red-600" style={{ visibility: globalErrors?.postSermon?.error ? 'visible' : 'hidden' }}>{globalErrors?.postSermon?.error}</p>
         </form>
         </div>
 
@@ -215,7 +206,7 @@ function PostSermon() {
                 value?.cover ? (
                   <div className=' flex flex-col justify-start items-center mb-8'>
                      <h3 className='text-lg font-semibold underline decoration-gray-500 mb-4'>Portada</h3>
-                     <img src={value?.cover} className='rounded-lg w-[300px] h-[200px] md:w-[480px] md:h-[300px]'/>
+                     <img src={value?.cover} className='rounded-lg w-[300px] h-[200px] md:w-[480px] md:h-[300px] object-none object-center'/>
                   </div>
                 ) : null
             }
