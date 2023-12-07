@@ -136,6 +136,18 @@ function rootReducer(state = initialState, {type, payload}){
             return{
                 ...state
             }
+        case DELETE_SERMON:
+            return{
+                ...state
+            }
+        case DELETE_CONTACT:
+            return{
+                ...state
+            }
+        case UPDATE_SERMON:
+            return{
+                ...state
+            }            
     }
 };
 
