@@ -35,8 +35,6 @@ function rootReducer(state = initialState, {type, payload}){
         case POST_SERMON:
             return{
                 ...state,
-                sermons: payload,
-                errors:{}
             }
         case GET_LAST_THREE:
                 let aux = payload.slice(-3)

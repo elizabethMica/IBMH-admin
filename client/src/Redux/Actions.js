@@ -28,7 +28,7 @@ export function getAllSermon (){
 };
 
 export function postSermon (value){
-    console.log("values action", value)
+    console.log(value)
     return async function(dispatch){
         try {
             const headers = {'Content-Type':'application/json'}
@@ -37,13 +37,9 @@ export function postSermon (value){
                type: POST_SERMON,
                payload: response
             })
-            return null
         } catch (error) {
-            dispatch({
-                type: ERRORS,
-                payload: {type: "postSermon", error: error?.response?.data}
-            })
-            return error
+            console.log("action", error.message)
+            throw Error(error.message)
         }
     }
 };

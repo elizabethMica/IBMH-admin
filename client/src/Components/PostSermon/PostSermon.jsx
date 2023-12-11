@@ -22,8 +22,8 @@ function PostSermon() {
         book: "",
         preacher: "",
         verseText: "",
-        keywords: "",
-        spotifyLink: ""
+        keywords: [""],
+        spotifyLink: "",
     })
 
     const embed = "https://www.youtube.com/embed/"
@@ -46,7 +46,7 @@ function PostSermon() {
     
 
     // const isSubmitDisabled = Object.keys(errors).length > 0;
-
+    
     const handleSubmit =(event)=>{
         event.preventDefault();
 
@@ -61,12 +61,12 @@ function PostSermon() {
             book: "",
             preacher: "",
             verseText: "",
-            keywords: "",
-            spotifyLink: "" 
+            keywords: [""],
+            spotifyLink: "",
         })
-        dispatch(getAllSermon())
         alert("Sermón subido con éxito")
-        navigate("/sermones")
+        dispatch(getAllSermon())
+        // navigate("/sermones")
     };
 
   return (
@@ -95,7 +95,7 @@ function PostSermon() {
                 placeholder="URL de la imagen para la portada"
                 name="cover"
                 onChange={handleChange}/>
-                {/* <p className="text-red-600" style={{ visibility: errors?.cover ? 'visible' : 'hidden' }}>{errors?.cover}</p> */}
+                {/* <p className="text-red-600" style={{ visibility: errors?.cover ? 'visible' : 'hidden' }}>{errors?.cover}</p>  */}
             </div>
 
             
@@ -104,8 +104,8 @@ function PostSermon() {
                 <label className='text-sm md:text-lg text-black'> Fecha </label>
                 <input 
                 className='w-full h-[45px] border-2  rounded-md text-start'
-                type="text" 
-                placeholder="Fecha de la predicación"
+                type="text"
+                placeholder='Ej: 10-12-2023' 
                 name="date"
                 onChange={handleChange}/>
                 {/* <p className="text-red-600" style={{ visibility: errors?.date ? 'visible' : 'hidden' }}>{errors?.date}</p> */}
