@@ -24,7 +24,7 @@ function Landing() {
     <div className='pt-24 md:mx-14 mx-8 pb-16'>
         <div className='flex justify-between items-center mb-4 '>
           <h3 className='text-xl font-semibold '>SERMONES</h3>
-          <NavLink to="/sermones"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4'>Ver más sermones</button></NavLink>
+          <NavLink to="/sermones"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4 hover:text-white'>Ver más sermones</button></NavLink>
         </div>
         <div  className='flex flex-col justify-center items-center md:items-start md:flex-row md:flex-wrap md:gap-10'>
           <NavLink to="/post-sermon"> <div  className='flex justify-center items-center bg-gray-100 text-center my-6 md:my-0 w-72 md:w-64 md:h-70 h-72 border-dashed border-2 border-gray-400 rounded-lg'><button className='text-center'><FaPlus size={30}className='text-gray-400'/></button></div></NavLink>
@@ -47,7 +47,7 @@ function Landing() {
         <div className='mt-6'>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='text-xl font-semibold '>CONTACTOS</h3>
-            <NavLink to="/contacts"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4'>Ver más contactos</button></NavLink>
+            <NavLink to="/contacts"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4 hover:text-white'>Ver más contactos</button></NavLink>
           </div>
           <div>
           {lastFour?.map(s =>{
