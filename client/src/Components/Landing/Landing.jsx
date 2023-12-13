@@ -18,8 +18,9 @@ function Landing() {
   },[])
 
   const lastThree = useSelector(state => state.lastThree)
-  const contacts = useSelector(state => state.contacts)
-  const lastFour = contacts.slice(-4)
+  const contacts = useSelector(state => state.contactFour)
+  const contactFour = contacts.toReversed()
+
   return (
     <div className='pt-24 md:mx-14 mx-8 pb-16'>
         <div className='flex justify-between items-center mb-4 '>
@@ -43,14 +44,14 @@ function Landing() {
           })}
         </div>
         {
-          lastFour.length > 0 ? (
+          contactFour.length > 0 ? (
         <div className='mt-6'>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='text-xl font-semibold '>CONTACTOS</h3>
             <NavLink to="/contacts"><button className=' rounded-lg bg-[#be8552] border-2 border-[#be8552] px-4 my-4 hover:text-white'>Ver más contactos</button></NavLink>
           </div>
           <div>
-          {lastFour?.map(s =>{
+          {contactFour?.map(s =>{
             return(
               <ContactCard
                 key={s.id}

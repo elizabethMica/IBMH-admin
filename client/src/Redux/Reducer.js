@@ -17,6 +17,7 @@ let initialState ={
     sermons: [],
     sermonDetail: [],
     contacts: [],
+    contactFour:[],
     contactDetail: {},
     lastThree: [],
     errors:{},
@@ -63,7 +64,8 @@ function rootReducer(state = initialState, {type, payload}){
         case GET_CONTACT:
             return{
                 ...state,
-                contacts: payload.toReversed()
+                contacts: payload.toReversed(),
+                contactFour: payload.slice(-4)
             }
         case GET_SERMON_DETAIL:
             return{
