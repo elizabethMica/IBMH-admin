@@ -16,7 +16,7 @@ function GetContact() {
   return (
     <div className='pt-24 flex flex-col '>
       <div className='flex justify-center items-center'>
-        <h1 className='text-2xl font-semibold border-b-2'>CONTACTOS</h1>
+        <h1 className='text-2xl font-semibold'>CONTACTOS</h1>
       </div>
      {
         contacts.map(c => {
