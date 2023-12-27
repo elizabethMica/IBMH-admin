@@ -16,7 +16,7 @@ import { POST_SERMON,
 export function getAllSermon (){
     return async function(dispatch){
         try {
-            const response = (await axios.get('http://localhost:3001/sermon')).data
+            const response = (await axios.get('https://ibmhurlingham.onrender.com/sermon')).data
             dispatch({
                 type: GET_SERMONS,
                 payload: response
@@ -32,7 +32,7 @@ export function postSermon (value){
     return async function(dispatch){
         try {
             const headers = {'Content-Type':'application/json'}
-            const response = (await axios.post("http://localhost:3001/sermon-post", value, {headers})).data
+            const response = (await axios.post("https://ibmhurlingham.onrender.com/sermon-post", value, {headers})).data
             dispatch({
                type: POST_SERMON,
                payload: response
@@ -48,7 +48,7 @@ export function updateSermon (values, id){
     return async function(dispatch){
         try {
             const headers = {'Content-Type':'application/json'}
-            const response = (await axios.patch(`http://localhost:3001/sermon-update/${id}` , values, {headers})).data
+            const response = (await axios.patch(`https://ibmhurlingham.onrender.com/sermon-update/${id}` , values, {headers})).data
             dispatch({
                 type: UPDATE_SERMON,
                 payload: response
@@ -62,7 +62,7 @@ export function updateSermon (values, id){
 export function deleteSermon (id){
     return async function(dispatch){
         try {
-            const response = (await axios.delete(`http://localhost:3001/sermon-delete/${id}`)).data
+            const response = (await axios.delete(`https://ibmhurlingham.onrender.com/sermon-delete/${id}`)).data
             dispatch({
                 type: DELETE_SERMON,
                 payload: response
@@ -76,7 +76,7 @@ export function deleteSermon (id){
 export function deleteContact (id){
     return async function(dispatch){
      try {
-         const response = (await axios.delete(`http://localhost:3001/contact-delete/${id}`)).data
+         const response = (await axios.delete(`https://ibmhurlingham.onrender.com/contact-delete/${id}`)).data
          dispatch({
              type: DELETE_CONTACT,
              payload: response
@@ -90,7 +90,7 @@ export function deleteContact (id){
  export function getAllContact (){
     return async function(dispatch){
       try {
-        const response = (await axios.get("http://localhost:3001/contact")).data
+        const response = (await axios.get("https://ibmhurlingham.onrender.com/contact")).data
         dispatch({
             type: GET_CONTACT,
             payload: response
@@ -104,7 +104,7 @@ export function deleteContact (id){
 export function getSermonDetail (id){
     return async function(dispatch){
         try {
-            const response = (await axios.get(`http://localhost:3001/sermon/${id}`)).data
+            const response = (await axios.get(`https://ibmhurlingham.onrender.com/sermon/${id}`)).data
             dispatch({
                 type: GET_SERMON_DETAIL,
                 payload: response
@@ -118,7 +118,7 @@ export function getSermonDetail (id){
 export function getContactDetail (id){
     return async function(dispatch){
         try {
-            const response = (await axios.get(`http://localhost:3001/contact/${id}`)).data
+            const response = (await axios.get(`https://ibmhurlingham.onrender.com/contact/${id}`)).data
             dispatch({
                 type: GET_CONTACT_DETAIL,
                 payload: response
@@ -141,7 +141,7 @@ export function paginado(value){
  export function getLastThree (){
     return async function(dispatch){
         try{
-            const response =(await axios.get('http://localhost:3001/sermon')).data
+            const response =(await axios.get('https://ibmhurlingham.onrender.com/sermon')).data
             dispatch({
                 type: GET_LAST_THREE,
                 payload: response
